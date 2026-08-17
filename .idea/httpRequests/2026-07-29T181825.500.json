@@ -1,0 +1,6 @@
+{
+  "timestamp": "2026-07-29T10:18:25.119+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "path": "/pay/get/1"
+}

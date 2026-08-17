@@ -1,0 +1,18 @@
+GET http://localhost:80/consumer/pay/get/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2026-08-03T203347.500.json
+
+###
+
+GET http://localhost:80/consumer/pay/get/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2026-08-03T203208.500.json
+
+###
+

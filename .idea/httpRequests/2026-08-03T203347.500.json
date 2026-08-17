@@ -1,0 +1,6 @@
+{
+  "code": "500",
+  "message": "I/O error on GET request for \"http://cloud-payment-service/pay/get/1\": cloud-payment-service",
+  "data": null,
+  "timestamp": 1785760427154
+}

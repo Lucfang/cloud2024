@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="config.properties"/>
+    <!-- 数据库驱动jar绝对路径【方案A】；推荐直接使用maven依赖运行，可不配置 -->
+    <!-- <classPathEntry location="D:/maven/repository/com/mysql/mysql-connector-j/8.0.36/mysql-connector-j-8.0.36.jar"/> -->
+
+    <context id="mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 【重要】引入tk.mybatis生成器插件，生成继承Mapper<T>实体接口 -->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <!-- 通用Mapper接口，固定 -->
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <!-- 是否生成Example，false=不生成Example（简洁） -->
+            <property name="generateExample" value="false"/>
+            <!-- 是否使用驼峰命名 -->
+            <property name="caseSensitive" value="true"/>
+        </plugin>
+
+        <!-- 如果使用 commentGenerator 插件 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"/>
+            <!-- MBG 4.x 支持从数据库读取注释 -->
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+
+
+        <!-- JDBC连接配置【MySQL8】 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.169.130:3308/seata_storage?characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=GMT%2B8&amp;allowPublicKeyRetrieval=true&amp;rewriteBatchedStatements=true&amp;useUnicode=true"
+                        userId="root"
+                        password="${jdbc.password}">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+
+        <!-- 类型转换 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 实体类生成位置 -->
+        <javaModelGenerator targetPackage="com.lcf.cloud.entities"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- Mapper XML文件 -->
+        <sqlMapGenerator targetPackage="com.lcf.cloud.mapper"
+                         targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- Mapper接口（继承 tk Mapper） -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.lcf.cloud.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 需要生成的数据表 -->
+        <!-- tableName="%" 生成全部表；domainObjectName 实体类名 -->
+<!--        <table tableName="t_pay" domainObjectName="Pay"-->
+<!--               enableCountByExample="false"-->
+<!--               enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 主键自增识别 &ndash;&gt;-->
+<!--            <generatedKey column="id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="t_order" domainObjectName="Order">-->
+<!--            &lt;!&ndash; 主键自增识别 &ndash;&gt;-->
+<!--            <generatedKey column="id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="t_account" domainObjectName="Account">-->
+<!--            &lt;!&ndash; 主键自增识别 &ndash;&gt;-->
+<!--            <generatedKey column="id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+
+                <table tableName="t_storage" domainObjectName="Storage">
+                    <!-- 主键自增识别 -->
+                    <generatedKey column="id" sqlStatement="JDBC"/>
+                </table>
+
+
+
+    </context>
+</generatorConfiguration>

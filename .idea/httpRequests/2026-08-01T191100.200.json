@@ -1,0 +1,15 @@
+{
+  "code": "200",
+  "message": "success",
+  "data": {
+    "id": 1,
+    "payNo": "pay20260706001",
+    "orderNo": "O2026070600088",
+    "userId": 10001,
+    "amount": 99.9,
+    "deleted": 0,
+    "createTime": "2026-07-06 13:43:38",
+    "updateTime": "2026-07-06 13:43:38"
+  },
+  "timestamp": 1785582660881
+}
